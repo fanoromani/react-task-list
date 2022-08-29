@@ -1,10 +1,6 @@
 import "./styles.css";
 
-function deleteTask() {
-  console.log(Task(""));
-}
-
-export function Task({ value, time }) {
+export function Task({ value, time, deleteTask }) {
   return (
     <div className="output-container">
       <div className="taskValue">
@@ -14,7 +10,7 @@ export function Task({ value, time }) {
       <button className="done">
         <i className="fa-solid fa-circle-check"></i>
       </button>
-      <button className="delete" onClick={deleteTask}>
+      <button className="delete" onClick={(e) => deleteTask(value)}>
         <i className="fa-solid fa-trash-can"></i>
       </button>
     </div>

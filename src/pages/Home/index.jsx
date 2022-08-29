@@ -16,9 +16,12 @@ export function Home() {
       }),
     };
     e.preventDefault();
-    if (newTask === "") return;
+    if (newTask.value === "") return;
     setTaskList((prevState) => [...prevState, newTask]);
     setInputValue("");
+  }
+  function deleteTask(value) {
+    setTaskList(taskList.filter((task) => task.value !== value));
   }
 
   return (
@@ -39,7 +42,12 @@ export function Home() {
         </form>
       </div>
       {taskList.map((task) => (
-        <Task value={task.value} time={task.time} />
+        <Task
+          value={task.value}
+          time={task.time}
+          key={task.time}
+          deleteTask={deleteTask}
+        />
       ))}
     </>
   );
