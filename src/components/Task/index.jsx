@@ -5,10 +5,10 @@ export function Task(props) {
     <div className="output-container">
       <div>{props.value}</div>
       <button className="done">
-        <i class="fa-solid fa-circle-check"></i>
+        <i className="fa-solid fa-circle-check"></i>
       </button>
       <button className="delete">
-        <i class="fa-solid fa-trash-can"></i>
+        <i className="fa-solid fa-trash-can"></i>
       </button>
     </div>
   );
