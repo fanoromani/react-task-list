@@ -7,10 +7,18 @@ export function Home() {
   const [taskList, setTaskList] = useState([]);
 
   function appendTask(e) {
-    const newTask = inputValue;
+    const newTask = {
+      value: inputValue,
+      time: new Date().toLocaleTimeString("pt-br", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+    };
     e.preventDefault();
-
+    if (newTask === "") return;
     setTaskList((prevState) => [...prevState, newTask]);
+    setInputValue("");
   }
 
   return (
@@ -22,6 +30,7 @@ export function Home() {
             type="text"
             placeholder="Enter Task"
             autoFocus
+            value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
           <button type="submit" onClick={appendTask}>
@@ -30,7 +39,7 @@ export function Home() {
         </form>
       </div>
       {taskList.map((task) => (
-        <Task value={task} />
+        <Task value={task.value} time={task.time} />
       ))}
     </>
   );

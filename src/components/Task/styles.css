@@ -33,3 +33,7 @@
 .delete {
   background-color: rgb(158, 32, 32);
 }
+.taskValue {
+  display: flex;
+  justify-content: space-between;
+}
