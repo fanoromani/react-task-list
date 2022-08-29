@@ -3,14 +3,14 @@ import "./styles.css";
 import { Task } from "../../components/Task";
 
 export function Home() {
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
   const [taskList, setTaskList] = useState([]);
 
   function appendTask(e) {
     const newTask = inputValue;
     e.preventDefault();
 
-    setTaskList([newTask]);
+    setTaskList((prevState) => [...prevState, newTask]);
   }
 
   return (
